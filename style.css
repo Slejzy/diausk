@@ -18,11 +18,9 @@ body {
     line-height: 1.6;
     color: #333;
     padding-top: 140px;
-    z-index: 1; /* Da sadržaj bude iznad pozadine */
 
-
-    
 }
+
 body.has-logo-bg::before {
     content: "";
     background-image: url('pic/logo.png');
@@ -374,13 +372,12 @@ nav ul li a:hover {
 .highlight-card {
     background: rgba(255, 255, 255, 0.4); /* Blaga prozirnost */
     padding: 2rem;
-    border-radius: 10px;
+    border-radius: 360px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-    border: 10px solid rgba(1, 115, 247, 0.2); /* Prozirna ivica */
     backdrop-filter: blur(10px); /* Stvara glassmorphism efekt */
     -webkit-backdrop-filter: blur(10px);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    box-shadow: rgba(0, 0, 0, 0.66) 0 30px 60px 0, inset #b0b4f0 0 0 0 5px, inset rgba(255, 255, 255, 0.5) 0 0 0 6px;
+    box-shadow: rgba(0, 0, 0, 0.66) 0 10px 50px 0, inset #ffffff 0 0 0 0px, inset rgba(255, 255, 255, 0.5) 0 0 0 2px;
     transition: 1s cubic-bezier(0.445, 0.05, 0.55, 0.95);
 }
 
