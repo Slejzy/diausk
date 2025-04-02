@@ -1,0 +1,761 @@
+:root {
+    
+    --primary-blue: #0066cc;
+    --dark-blue: #004999;
+    --light-blue: #e8f3ff;
+    --gradient-blue: linear-gradient(135deg, #06488a 0%, #05264a 100%);
+}
+
+/* Reset i osnovni stilovi */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    line-height: 1.6;
+    color: #333;
+    padding-top: 140px;
+    z-index: 1; /* Da sadržaj bude iznad pozadine */
+
+
+    
+}
+body.has-logo-bg::before {
+    content: "";
+    background-image: url('pic/logo.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    background-size: 200px; /* Prilagodite veličinu */
+    opacity: 0.5; /* Prozirnost (0.1 = 10%) */
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1; /* Da bude IZA sadržaja */
+    pointer-events: none; /* Da ne blokira interakciju */
+}
+
+/* ------------- HEADER I NAVIGACIJA ------------- */
+.top-contact-bar {
+    background: var(--dark-blue);
+    color: white;
+    padding: 0.5rem 2rem;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.contact-info {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    gap: 2rem;
+    justify-content: flex-end;
+    font-size: 0.9rem;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.contact-item i {
+    color: white;
+}
+
+header, .fixed-header {
+    background: var(--gradient-blue);
+    padding: 1rem 2rem;
+    position: fixed;
+    top: 40px;
+    width: 100%;
+    z-index: 999;
+    box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+}
+
+.logo-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    color: white;
+    text-decoration: none;
+}
+
+.logo img {
+    width: 80px;
+    height: auto;
+}
+
+.logo-text {
+    font-size: 1.1rem;
+    font-weight: 600;
+    max-width: 300px;
+}
+
+.hamburger {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.5rem;
+    color: white;
+    display: none;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    background: transparent;
+    transition: all 0.3s ease;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    padding: 10px;
+    display: block;
+}
+
+nav ul li a:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 5px;
+}
+
+/* ------------- HERO SEKCIJA ------------- */
+.hero {
+    position: relative;
+    height: 55vh;
+    min-height: 200px;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+}
+
+.hero-overlay {
+    position: relative;
+    z-index: 2;
+    padding: 2rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(194, 224, 255, 0.425);
+    z-index: 1;
+}
+
+.hero h1 {
+    font-size: 2.8rem;
+    margin-bottom: 1.5rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.hero p {
+    font-size: 1.4rem;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+}
+
+/* ------------- O NAMA SEKCIJA ------------- */
+.about-section {
+    background: var(--light-blue);
+    padding: 4rem 2rem;
+}
+
+.about-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    grid-template-columns: 1fr 1fr;
+ 
+    gap: 3rem;
+    align-items: center;
+    text-align: justify;
+
+}
+.container-about {
+    max-width: 960px;
+    margin: auto;
+    background: #fff;
+    padding: 50px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    text-align: justify;
+  }
+
+.about-text h2 {
+    color: var(--dark-blue);
+    font-size: 2.2rem;
+    margin-bottom: 1.5rem;
+}
+
+.read-more {
+    color: var(--primary-blue);
+    text-decoration: none;
+    font-weight: 600;
+    margin-top: 1rem;
+    display: inline-block;
+}
+/* ------------- BOXOVI SA HOVER EFEKTOM - OPTIMIZIRANA VERZIJA ------------- */
+.services-section {
+    padding: 2rem 1rem;
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(300px, 1fr));
+    gap: 40px;
+    justify-items: center;
+}
+
+.box {
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    position: relative;
+    height: 450px;
+    width: 100%;
+    max-width: 450px;
+    transition: all 0.4s ease;
+}
+
+
+
+.image-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
+}
+
+.box h3 {
+    color: rgb(67, 48, 234);
+    margin: 0;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    z-index: 2;
+    background: rgba(236, 236, 236, 0.9);
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: opacity 0.3s ease;
+}
+
+.text-content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 25px;
+    background: rgba(153, 196, 239, 0.9);
+    color: black;
+    transform: translateY(100%);
+    transition: transform 0.4s ease;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.text-content p {
+    font-size: 16px;
+    margin-bottom: 10px;
+    line-height: 1.6;
+}
+
+.text-content p:nth-child(2) {
+    font-weight: bold;
+    margin-top: 15px;
+}
+
+.text-content p:nth-child(n+3) {
+    position: relative;
+    padding-left: 20px;
+}
+
+.text-content p:nth-child(n+3)::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: white;
+}
+
+.box:hover .image-container img {
+    transform: scale(1.05);
+}
+
+.box:hover h3 {
+    opacity: 0;
+}
+
+.box:hover .text-content {
+    transform: translateY(0);
+}
+
+/* ------------- SERVICES GRID ------------- */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 4rem auto;
+    padding: 0 2rem;
+}
+
+.service-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    text-align: justify;
+    transition: transform 0.3s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+}
+
+/* ------------- ISTAKNUTO I ČLANOVI SEKCIJA ------------- */
+.istaknuto-section {
+    padding: 4rem 2rem;
+}
+
+.highlight-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.highlight-card {
+    background: rgba(255, 255, 255, 0.4); /* Blaga prozirnost */
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    border: 10px solid rgba(1, 115, 247, 0.2); /* Prozirna ivica */
+    backdrop-filter: blur(10px); /* Stvara glassmorphism efekt */
+    -webkit-backdrop-filter: blur(10px);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: rgba(0, 0, 0, 0.66) 0 30px 60px 0, inset #b0b4f0 0 0 0 5px, inset rgba(255, 255, 255, 0.5) 0 0 0 6px;
+    transition: 1s cubic-bezier(0.445, 0.05, 0.55, 0.95);
+}
+
+.highlight-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 20px rgba(11, 8, 190, 0.15);
+}
+
+.clanovi-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 4rem auto;
+    padding: 0 2rem;
+}
+
+/* ------------- NASLOVI ------------- */
+h1, h2, h3 {
+    color: var(--primary-blue);
+    margin-bottom: 10px;
+}
+
+h1 {
+    font-size: 2.5em;
+    border-bottom: 2px solid var(--primary-blue);
+    padding-bottom: 10px;
+    color: white;
+}
+
+h2 {
+    margin-top: 30px;
+    font-size: 1.8em;
+    text-align: center;
+    color: var(--dark-blue);
+}
+
+h3 {
+    margin-top: 20px;
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+/* ------------- FOOTER ------------- */
+footer {
+    background: var(--gradient-blue);
+    color: white;
+    text-align: center;
+    padding: 2rem;
+    margin-top: 4rem;
+}
+
+/* ------------- RESPONSIVE ADJUSTMENTS ------------- */
+@media (max-width: 1200px) {
+    .container {
+        grid-template-columns: repeat(2, minmax(300px, 1fr));
+    }
+}
+@media (max-width: 768px) {
+    .hamburger {
+        display: block;
+    }
+
+    #nav-menu {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: var(--dark-blue);
+        flex-direction: column;
+        gap: 0.5rem;
+        padding: 1rem;
+        display: none;
+        z-index: 1000;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+
+    #nav-menu.active {
+        display: flex;
+    }
+
+    nav ul li {
+        margin: 0;
+        width: 100%;
+    }
+
+    nav ul li a {
+        padding: 0.8rem;
+        text-align: center;
+    }
+
+    .top-contact-bar {
+        display: none;
+    }
+
+    .fixed-header {
+        top: 0;
+        padding: 0.8rem 1rem;
+    }
+
+    body {
+        padding-top: 80px;
+    }
+
+    .logo img {
+        width: 60px;
+    }
+
+    .logo-text {
+        font-size: 0.9rem;
+        max-width: 200px;
+    }
+
+    .hero {
+        height: 40vh;
+    }
+
+    .hero h1 {
+        font-size: 2rem;
+    }
+
+    .hero p {
+        font-size: 1.1rem;
+    }
+
+    .about-content,
+    .container {
+        grid-template-columns: 1fr;
+        gap: 30px;    }
+
+    .service-card {
+        margin: 1rem;
+    }
+
+    .box {
+        height: 400px;
+        max-width: 100%;
+    }
+    
+    .text-content {
+        padding: 20px;
+    }
+    
+    .text-content p {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .fixed-header {
+        padding: 0.5rem;
+    }
+    
+    body {
+        padding-top: 70px;
+    }
+    
+    .logo img {
+        width: 50px;
+    }
+    
+    .logo-text {
+        font-size: 0.8rem;
+        max-width: 150px;
+    }
+    
+    #nav-menu {
+        padding: 0.5rem;
+    }
+    
+    nav ul li a {
+        padding: 0.6rem;
+    }
+    
+    .hero {
+        height: 30vh;
+    }
+    
+    .hero h1 {
+        font-size: 1.8rem;
+    }
+    
+    .hero p {
+        font-size: 1rem;
+    }
+
+    .box {
+        height: 400px;
+    }
+    
+    .text-content {
+        padding: 15px;
+    }
+    
+    .box h3 {
+        font-size: 1.1rem;
+        padding: 8px 12px;
+    }
+}
+
+/* Stilovi za sekciju o dijabetesu */
+/* Novi stil za sekciju o dijabetesu prikazan u jednom redu */
+.diabetes-section .container-diabetes {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: nowrap;  /* Sprječava prelamanje u više redova */
+    overflow-x: auto;   /* Ako sadržaj prelazi širinu, omogućava horizontalno scrollanje */
+    padding: 20px 0;
+}
+
+.diabetes-section article {
+    flex: 1 1 auto;
+    min-width: 300px;  /* Po želji prilagodite minimalnu širinu */
+    max-width: 25%;    /* Ako imate 4 članka, svima dodijelite do 25% širine, prilagodite prema broju */
+    box-sizing: border-box;
+    padding: 0 10px;
+}
+
+/* Opcionalno, stilizacija naslova sekcije da ostane centriran */
+.diabetes-section h2 {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 20px;
+}
+.responsive-img {
+    max-width: 100%; /* Slika ne smije biti šira od svog kontejnera */
+    height: auto; /* Održava omjer širine i visine slike */
+    display: block; /* Uklanja dodatni prostor ispod slike u nekim preglednicima */
+}
+
+.responsive-img-pumpa {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 160px; /* Dodajte to vrstico za zaokroževanje robov */
+}
+
+/* Liječenje */
+.treatment-methods {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.treatment-card {
+    background: var(--light-blue);
+    padding: 25px;
+    border-radius: 8px;
+    border-left: 4px solid var(--primary-blue);
+}
+
+/* DODATAK CSS-u */
+.prevention-section {
+    background: var(--light-blue);
+    padding: 60px 0;
+}
+
+.prevention-content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: justify;
+
+}
+
+.prevention-content p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 30px;
+}
+
+.prevention-highlights {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.highlight-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 120px;
+}
+
+.highlight-item i {
+    font-size: 2rem;
+    color: var(--primary-blue);
+    margin-bottom: 10px;
+}
+
+.highlight-item span {
+    font-weight: 600;
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+    .prevention-highlights {
+        gap: 20px;
+    }
+    
+    .highlight-item {
+        width: 100px;
+    }
+}
+
+/* ------------- DODATNI STILOVI drop down menu ------------- */
+/* Dropdown meni */
+.dropdown {
+    position: relative;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: white;
+    min-width: 200px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    border-radius: 5px;
+    z-index: 1000;
+    padding: 10px 0;
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+.dropdown-menu li {
+    margin: 0;
+    padding: 0;
+}
+
+.dropdown-menu a {
+    color: var(--dark-blue);
+    padding: 8px 20px;
+    display: block;
+    transition: all 0.3s ease;
+}
+
+.dropdown-menu a:hover {
+    background: var(--light-blue);
+    color: var(--primary-blue);
+}
+
+.dropdown > a i {
+    margin-left: 5px;
+    font-size: 0.8em;
+    transition: transform 0.3s ease;
+}
+
+.dropdown:hover > a i {
+    transform: rotate(180deg);
+}
+
+/* Responsive stilovi */
+@media (max-width: 768px) {
+    .dropdown-menu {
+        position: static;
+        box-shadow: none;
+        background: rgba(255,255,255,0.1);
+    }
+    
+    .dropdown-menu a {
+        color: white;
+        padding-left: 30px;
+    }
+    
+    .dropdown-menu a:hover {
+        background: rgba(255,255,255,0.2);
+    }
+}
+
